@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<title>字体漂浮效果</title>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	/* 鼠标点击特效 */
+	var a_idx = 0;
+	jQuery(document).ready(function($) {
+		$("body").click(function(e) {
+			var a = new Array("（*@ο@*）", "（⊙o⊙）", "★~★", "(*^‧^*)", "（ˇ＾ˇ〉", "~>_<~+", "(≥◇≤)" ,"（*>.<*）", ">_<|||", "→_→", "└(^o^)┘", " (*^__^*)");
+			var $i = $("<span></tagObj>").text(a[a_idx]);
+			a_idx = (a_idx + 1) % a.length;
+			var x = e.pageX,y = e.pageY;
+			$i.css({
+				"z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+				"top": y - 20,
+				"left": x,
+				"position": "absolute",
+				"font-weight": "bold",
+				"color": "#ff6651"
+			});
+	        $("body").append($i);
+	        $i.animate({
+	        	"top": y - 180,
+	        	"opacity": 0
+	        },1500,function() {
+	            $i.remove();
+	        });  
+	    });
+	});
+
+</script>
+</head>
+<body>
+<div id="content" style="position: fixed;top:0;left:0;bottom:0;background-color: #f2f2f2;z-index:-1;width: 100%;">
+	<span>点击页面飘出符号效果</span>
+</div>
+<div style="text-align:center">
+
+</div>
+</body>
+</html>
